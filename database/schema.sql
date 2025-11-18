@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 -- Insert Default Admin User (password: admin123)
 INSERT INTO users (username, email, password, name, role) VALUES
-('admin', 'admin@noticiasweb.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Administrador', 'admin');
+('admin', 'admin@noticiasweb.com', '$2y$12$eBIUJBfmp5xE/a8UuagVPOBqCcpjhIdmqg0Euj7LY8N2adfuQuIf6', 'Administrador', 'admin');
 
 -- Categories Table
 CREATE TABLE IF NOT EXISTS categories (
