@@ -13,7 +13,7 @@ define('DB_NAME', 'noticias_investiga');
 // Application Configuration
 define('APP_NAME', 'NoticiasInvestiga');
 define('APP_DESC', 'Periodismo de Investigación');
-define('APP_URL', 'http://localhost/noticias');
+define('APP_URL', 'http://localhost/noticiasweb');
 define('APP_ROOT', dirname(dirname(__FILE__)));
 
 // Path Configuration
