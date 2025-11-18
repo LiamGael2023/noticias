@@ -77,7 +77,7 @@ INSERT INTO news (title, slug, excerpt, content, image, category_id, author, rea
     'El arándano y la palta lideran el crecimiento de las agroexportaciones regionales con mercados en Asia y Europa.',
     '<p>Las exportaciones agrícolas de la región La Libertad han experimentado un crecimiento del 25% durante el presente año, impulsadas principalmente por la producción en las áreas irrigadas por Chavimochic.</p><h2>Productos Estrella</h2><p>El arándano continúa siendo el producto líder, seguido por la palta Hass y los espárragos. Nuevos cultivos como los arándanos orgánicos están ganando terreno en mercados premium.</p>',
     'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800',
-    5, 'Roberto Sánchez', 3, 0
+    5, 'Roberto Sánchez', 3, 1
 ),
 (
     'Inauguran Moderno Centro de Investigación Agrícola en Virú',
@@ -85,7 +85,7 @@ INSERT INTO news (title, slug, excerpt, content, image, category_id, author, rea
     'El nuevo centro permitirá desarrollar variedades de cultivos adaptadas a las condiciones climáticas de la costa norte.',
     '<p>Con una inversión de 15 millones de soles, se inauguró el Centro de Investigación Agrícola de Virú, una instalación de última generación dedicada al desarrollo de nuevas variedades de cultivos.</p><h2>Instalaciones</h2><p>El centro cuenta con laboratorios de biotecnología, invernaderos automatizados y campos experimentales que permitirán realizar investigación de alto nivel.</p>',
     'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800',
-    3, 'Ana García', 4, 0
+    3, 'Ana García', 4, 1
 ),
 (
     'Plan Maestro de Infraestructura Vial Conectará Zonas Agrícolas',

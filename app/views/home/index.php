@@ -6,16 +6,16 @@ ob_start();
 ?>
 
 <div class="container mx-auto px-4 py-8">
-    <!-- Featured News Section - 3 Noticias Destacadas -->
+    <!-- Featured News Section - 1 Principal + 3 Secundarias -->
     <section class="mb-10">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <?php if (!empty($featuredNews)): ?>
-                <!-- Main Featured - Ocupa 2 columnas -->
-                <div class="lg:col-span-2 lg:row-span-2">
-                    <?php renderNewsCard($featuredNews[0], 'featured'); ?>
-                </div>
+        <?php if (!empty($featuredNews)): ?>
+            <!-- Main Featured - Full width -->
+            <div class="mb-4">
+                <?php renderNewsCard($featuredNews[0], 'featured'); ?>
+            </div>
 
-                <!-- Secondary Featured - 2 noticias apiladas -->
+            <!-- 3 Secondary Featured -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <?php if (isset($featuredNews[1])): ?>
                 <div>
                     <?php renderNewsCard($featuredNews[1], 'secondary'); ?>
@@ -27,8 +27,14 @@ ob_start();
                     <?php renderNewsCard($featuredNews[2], 'secondary'); ?>
                 </div>
                 <?php endif; ?>
-            <?php endif; ?>
-        </div>
+
+                <?php if (isset($featuredNews[3])): ?>
+                <div>
+                    <?php renderNewsCard($featuredNews[3], 'secondary'); ?>
+                </div>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
     </section>
 
     <!-- Main Content with Sidebar -->
@@ -40,22 +46,10 @@ ob_start();
             </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <?php foreach ($regularNews as $index => $news): ?>
+                <?php foreach ($regularNews as $news): ?>
                     <?php renderNewsCard($news); ?>
-
-                    <?php if (($index + 1) % 4 === 0 && $index < count($regularNews) - 1): ?>
-                        <div class="md:col-span-2 my-4">
-                            <?php renderAd('in-feed'); ?>
-                        </div>
-                    <?php endif; ?>
                 <?php endforeach; ?>
             </div>
-
-            <?php if (count($regularNews) > 0 && count($regularNews) % 4 !== 0): ?>
-                <div class="mt-6">
-                    <?php renderAd('in-feed'); ?>
-                </div>
-            <?php endif; ?>
         </div>
 
         <!-- Sidebar -->
