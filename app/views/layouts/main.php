@@ -75,6 +75,76 @@
             background: linear-gradient(110deg, #f1f5f9 8%, #e2e8f0 18%, #f1f5f9 33%);
             background-size: 200% 100%;
         }
+
+        /* Prose styles for article content */
+        .prose {
+            color: #334155;
+            max-width: none;
+        }
+        .prose p {
+            margin-bottom: 1.25em;
+            line-height: 1.8;
+        }
+        .prose h2 {
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 1.5em;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            line-height: 1.3;
+        }
+        .prose h3 {
+            color: #0f172a;
+            font-weight: 600;
+            font-size: 1.25em;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+            line-height: 1.4;
+        }
+        .prose a {
+            color: #2563eb;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        .prose a:hover {
+            color: #1d4ed8;
+        }
+        .prose strong {
+            color: #0f172a;
+            font-weight: 600;
+        }
+        .prose ul {
+            list-style-type: disc;
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+            padding-left: 1.625em;
+        }
+        .prose ol {
+            list-style-type: decimal;
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+            padding-left: 1.625em;
+        }
+        .prose li {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        .prose blockquote {
+            font-style: italic;
+            border-left: 4px solid #2563eb;
+            padding-left: 1em;
+            margin-top: 1.6em;
+            margin-bottom: 1.6em;
+            color: #475569;
+        }
+        .prose img {
+            margin-top: 2em;
+            margin-bottom: 2em;
+            border-radius: 0.75rem;
+        }
+        .prose-lg {
+            font-size: 1.125rem;
+        }
     </style>
 </head>
 <body class="font-sans antialiased bg-slate-50 text-slate-900">
