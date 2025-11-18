@@ -32,7 +32,7 @@ class Controller {
 
         $viewFile = VIEWS_PATH . $view . '.php';
         if (file_exists($viewFile)) {
-            require_once $viewFile;
+            require $viewFile;
         } else {
             die("View not found: " . $view);
         }

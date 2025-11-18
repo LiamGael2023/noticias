@@ -107,6 +107,10 @@ class Router {
      */
     private function error404($message = '') {
         http_response_code(404);
+        // Debug message
+        if (!empty($message)) {
+            echo "<!-- Debug: $message -->";
+        }
         require_once VIEWS_PATH . 'layouts/404.php';
         exit;
     }
