@@ -25,6 +25,7 @@ require_once APP_ROOT . '/core/App.php';
 require_once MODELS_PATH . 'Category.php';
 require_once MODELS_PATH . 'News.php';
 require_once MODELS_PATH . 'Ad.php';
+require_once MODELS_PATH . 'User.php';
 
 // Initialize and run application
 $app = new App();
