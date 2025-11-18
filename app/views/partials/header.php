@@ -3,7 +3,7 @@
 $categoryModel = new Category();
 $navCategories = $categoryModel->all('name ASC');
 ?>
-<header class="w-full sticky top-0 z-50">
+<header class="w-full">
     <!-- Top Bar -->
     <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-2 hidden md:block">
         <div class="container mx-auto px-4 flex justify-between items-center text-xs">
@@ -35,8 +35,14 @@ $navCategories = $categoryModel->all('name ASC');
         </div>
     </div>
 
-    <!-- Main Header -->
-    <div class="bg-white shadow-lg">
+    <!-- Ad Banner - Se oculta al hacer scroll -->
+    <div class="bg-slate-50 py-4 border-b border-slate-200">
+        <?php include VIEWS_PATH . 'partials/ad_banner.php'; ?>
+        <?php renderAd('header'); ?>
+    </div>
+
+    <!-- Sticky Header (Logo + Nav) -->
+    <div class="sticky top-0 z-50 bg-white shadow-lg">
         <div class="container mx-auto px-4">
             <!-- Logo and Search -->
             <div class="flex items-center justify-between py-4">
@@ -110,12 +116,6 @@ $navCategories = $categoryModel->all('name ASC');
                 </div>
             </div>
         </nav>
-    </div>
-
-    <!-- Ad Banner -->
-    <div class="bg-slate-50 py-4 border-b border-slate-200">
-        <?php include VIEWS_PATH . 'partials/ad_banner.php'; ?>
-        <?php renderAd('header'); ?>
     </div>
 </header>
 
