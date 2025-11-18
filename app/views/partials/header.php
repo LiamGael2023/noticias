@@ -81,11 +81,11 @@ $navCategories = $categoryModel->all('name ASC');
 
                 <!-- CTA Button -->
                 <div class="hidden lg:block">
-                    <a href="#newsletter" class="inline-flex items-center px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200">
+                    <a href="<?= APP_URL ?>/categoria/chavimochic" class="inline-flex items-center px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
-                        Suscribirse
+                        Chavimochic
                     </a>
                 </div>
             </div>
@@ -95,6 +95,21 @@ $navCategories = $categoryModel->all('name ASC');
         <nav class="border-t border-slate-100">
             <div class="container mx-auto px-4">
                 <div id="mobileMenu" class="hidden lg:block">
+                    <!-- Mobile Search -->
+                    <div class="lg:hidden py-3 border-b border-slate-100">
+                        <form action="<?= APP_URL ?>/buscar" method="GET" class="relative">
+                            <input
+                                type="text"
+                                name="q"
+                                placeholder="Buscar noticias..."
+                                value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>"
+                                class="w-full px-4 py-3 pl-10 bg-slate-100 border-0 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-sm"
+                            >
+                            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </form>
+                    </div>
                     <ul class="flex flex-col lg:flex-row lg:items-center lg:space-x-1 py-3">
                         <li>
                             <a href="<?= APP_URL ?>" class="flex items-center px-4 py-2.5 text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-semibold transition-all text-sm">
@@ -122,6 +137,49 @@ $navCategories = $categoryModel->all('name ASC');
 <script>
 function toggleMenu() {
     const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('hidden');
+    const menuIcon = document.getElementById('menuIcon');
+
+    if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        menu.classList.add('animate-fade-in');
+        // Change to X icon
+        menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+    } else {
+        menu.classList.add('hidden');
+        menu.classList.remove('animate-fade-in');
+        // Change to hamburger icon
+        menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+    }
 }
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById('mobileMenu');
+    const menuButton = event.target.closest('button[onclick="toggleMenu()"]');
+    const isClickInside = menu.contains(event.target);
+
+    if (!menuButton && !isClickInside && !menu.classList.contains('hidden')) {
+        toggleMenu();
+    }
+});
+
+// Close menu when pressing Escape
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const menu = document.getElementById('mobileMenu');
+        if (!menu.classList.contains('hidden')) {
+            toggleMenu();
+        }
+    }
+});
 </script>
+
+<style>
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+}
+</style>
