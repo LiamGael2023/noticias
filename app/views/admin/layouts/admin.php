@@ -45,6 +45,14 @@
                 Categorías
             </a>
 
+            <a href="<?= APP_URL ?>/admin/ads" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-800 transition-colors <?= ($currentPage ?? '') === 'ads' ? 'bg-slate-800 text-blue-400' : 'text-slate-300' ?>">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/>
+                </svg>
+                Publicidad
+            </a>
+
             <div class="pt-4 mt-4 border-t border-slate-700">
                 <a href="<?= APP_URL ?>" target="_blank" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-800 transition-colors text-slate-300">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

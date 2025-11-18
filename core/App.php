@@ -49,6 +49,10 @@ class App {
         $this->router->add('admin/categories/store', ['controller' => 'admin', 'action' => 'categoryStore']);
         $this->router->add('admin/categories/update/{id}', ['controller' => 'admin', 'action' => 'categoryUpdate']);
         $this->router->add('admin/categories/delete/{id}', ['controller' => 'admin', 'action' => 'categoryDelete']);
+
+        // Admin Ads
+        $this->router->add('admin/ads', ['controller' => 'admin', 'action' => 'ads']);
+        $this->router->add('admin/ads/update/{id}', ['controller' => 'admin', 'action' => 'adUpdate']);
     }
 
     /**

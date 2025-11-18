@@ -237,6 +237,44 @@ class AdminController extends Controller {
     }
 
     /**
+     * List all ads
+     */
+    public function ads() {
+        $adModel = $this->model('Ad');
+        $ads = $adModel->all('position ASC');
+
+        $this->view('admin/ads/index', [
+            'title' => 'Gestionar Publicidad',
+            'ads' => $ads,
+            'success' => $_SESSION['flash_message'] ?? null
+        ]);
+
+        unset($_SESSION['flash_message']);
+    }
+
+    /**
+     * Update ad
+     */
+    public function adUpdate($id) {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->redirect('/admin/ads');
+        }
+
+        $adModel = $this->model('Ad');
+
+        $title = trim($_POST['title'] ?? '');
+        $image_url = trim($_POST['image_url'] ?? '');
+        $link_url = trim($_POST['link_url'] ?? '');
+        $active = isset($_POST['active']) ? 1 : 0;
+
+        $sql = "UPDATE ads SET title = ?, image_url = ?, link_url = ?, active = ? WHERE id = ?";
+        $adModel->query($sql, [$title, $image_url, $link_url, $active, $id]);
+
+        $_SESSION['flash_message'] = 'Publicidad actualizada exitosamente';
+        $this->redirect('/admin/ads');
+    }
+
+    /**
      * Create slug from string
      */
     private function createSlug($string) {
