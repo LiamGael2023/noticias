@@ -3,6 +3,7 @@
  * News Card Component - Modern Design
  */
 
+if (!function_exists('renderNewsCard')) {
 function renderNewsCard($news, $variant = 'default') {
     if ($variant === 'featured') {
         ?>
@@ -100,4 +101,5 @@ function renderNewsCard($news, $variant = 'default') {
         </div>
     </article>
     <?php
+}
 }

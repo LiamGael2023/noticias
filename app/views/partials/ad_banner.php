@@ -3,6 +3,7 @@
  * Ad Banner Component
  */
 
+if (!function_exists('renderAd')) {
 function renderAd($position, $className = '') {
     $sizes = Ad::getSizes();
     $size = isset($sizes[$position]) ? $sizes[$position] : $sizes['header'];
@@ -40,4 +41,5 @@ function renderAd($position, $className = '') {
         </div>
     </div>
     <?php
+}
 }
