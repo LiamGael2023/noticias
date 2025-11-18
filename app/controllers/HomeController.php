@@ -9,7 +9,7 @@ class HomeController extends Controller {
         $newsModel = $this->model('News');
         $categoryModel = $this->model('Category');
 
-        $featuredNews = $newsModel->getFeatured(4);
+        $featuredNews = $newsModel->getFeatured(3);
         $regularNews = $newsModel->getNonFeatured();
         $recentNews = $newsModel->getRecent(5);
         $categories = $categoryModel->getAllWithCount();
