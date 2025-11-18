@@ -31,9 +31,9 @@ class News extends Model {
                 LEFT JOIN categories c ON n.category_id = c.id
                 WHERE n.featured = 1
                 ORDER BY n.created_at DESC
-                LIMIT ?";
+                LIMIT " . (int)$limit;
 
-        return $this->fetchAll($sql, [$limit]);
+        return $this->fetchAll($sql);
     }
 
     /**
@@ -78,9 +78,9 @@ class News extends Model {
                 LEFT JOIN categories c ON n.category_id = c.id
                 WHERE n.category_id = ? AND n.id != ?
                 ORDER BY n.created_at DESC
-                LIMIT ?";
+                LIMIT " . (int)$limit;
 
-        return $this->fetchAll($sql, [$categoryId, $excludeId, $limit]);
+        return $this->fetchAll($sql, [$categoryId, $excludeId]);
     }
 
     /**
@@ -91,9 +91,9 @@ class News extends Model {
                 FROM news n
                 LEFT JOIN categories c ON n.category_id = c.id
                 ORDER BY n.created_at DESC
-                LIMIT ?";
+                LIMIT " . (int)$limit;
 
-        return $this->fetchAll($sql, [$limit]);
+        return $this->fetchAll($sql);
     }
 
     /**
