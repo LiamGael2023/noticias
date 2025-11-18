@@ -28,16 +28,28 @@ class AdminController extends Controller {
         $categoryModel = $this->model('Category');
 
         // Get stats
-        $totalNews = count($newsModel->all());
+        $allNews = $newsModel->all();
+        $totalNews = count($allNews);
         $totalCategories = count($categoryModel->all());
-        $featuredNews = count($newsModel->getFeatured(100));
+
+        // Count published news
+        $publishedNews = 0;
+        $totalViews = 0;
+        foreach ($allNews as $news) {
+            if (($news['status'] ?? 'published') === 'published') {
+                $publishedNews++;
+            }
+            $totalViews += $news['views'] ?? 0;
+        }
+
         $recentNews = $newsModel->getRecent(5);
 
         $this->view('admin/dashboard', [
             'title' => 'Dashboard',
             'totalNews' => $totalNews,
+            'publishedNews' => $publishedNews,
             'totalCategories' => $totalCategories,
-            'featuredNews' => $featuredNews,
+            'totalViews' => $totalViews,
             'recentNews' => $recentNews
         ]);
     }
