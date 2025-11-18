@@ -6,21 +6,27 @@ ob_start();
 ?>
 
 <div class="container mx-auto px-4 py-8">
-    <!-- Featured News Section -->
-    <section class="mb-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <!-- Featured News Section - 3 Noticias Destacadas -->
+    <section class="mb-10">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <?php if (!empty($featuredNews)): ?>
-                <!-- Main Featured -->
-                <div class="lg:row-span-2">
+                <!-- Main Featured - Ocupa 2 columnas -->
+                <div class="lg:col-span-2 lg:row-span-2">
                     <?php renderNewsCard($featuredNews[0], 'featured'); ?>
                 </div>
 
-                <!-- Secondary Featured -->
-                <div class="grid grid-cols-1 gap-4">
-                    <?php for ($i = 1; $i < count($featuredNews); $i++): ?>
-                        <?php renderNewsCard($featuredNews[$i], 'secondary'); ?>
-                    <?php endfor; ?>
+                <!-- Secondary Featured - 2 noticias apiladas -->
+                <?php if (isset($featuredNews[1])): ?>
+                <div>
+                    <?php renderNewsCard($featuredNews[1], 'secondary'); ?>
                 </div>
+                <?php endif; ?>
+
+                <?php if (isset($featuredNews[2])): ?>
+                <div>
+                    <?php renderNewsCard($featuredNews[2], 'secondary'); ?>
+                </div>
+                <?php endif; ?>
             <?php endif; ?>
         </div>
     </section>
