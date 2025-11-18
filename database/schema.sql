@@ -118,6 +118,22 @@ INSERT INTO news (title, slug, excerpt, content, image, category_id, author, rea
     '<p>La región La Libertad ha establecido un nuevo récord en la producción de arándanos, consolidándose como el principal polo arandanero del Perú y uno de los más importantes de Sudamérica.</p><h2>Cifras</h2><p>La producción alcanzó las 180,000 toneladas métricas, representando un incremento del 30% respecto al año anterior.</p>',
     'https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=800',
     5, 'Jorge Flores', 3, 0
+),
+(
+    'Proyecto de Energía Solar para Estaciones de Bombeo',
+    'energia-solar-estaciones-bombeo',
+    'Implementación de paneles solares reducirá costos operativos del sistema de riego en un 35%.',
+    '<p>El Proyecto Chavimochic iniciará la instalación de sistemas de energía solar en sus principales estaciones de bombeo, buscando reducir la dependencia energética y los costos operativos.</p><h2>Beneficios</h2><p>Se estima un ahorro anual de 2 millones de soles en costos de energía eléctrica, además de reducir la huella de carbono del proyecto.</p>',
+    'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800',
+    4, 'Elena Vargas', 4, 0
+),
+(
+    'Alianza Estratégica con Universidades para Investigación',
+    'alianza-universidades-investigacion',
+    'Convenio permitirá desarrollar proyectos de investigación aplicada en agricultura de precisión.',
+    '<p>El Proyecto Chavimochic firmó convenios de cooperación con tres universidades peruanas para el desarrollo de investigación aplicada en temas de agricultura de precisión y gestión hídrica.</p><h2>Áreas de Investigación</h2><p>Los proyectos incluyen desarrollo de sensores de bajo costo, modelos predictivos de riego y variedades de cultivos resistentes al cambio climático.</p>',
+    'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800',
+    4, 'Ricardo Medina', 5, 0
 );
 
 -- Insert Default Ad Slots
