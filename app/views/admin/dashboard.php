@@ -100,8 +100,9 @@ ob_start();
                         </p>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="px-2 py-1 text-xs rounded-full <?= $news['status'] === 'published' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700' ?>">
-                            <?= $news['status'] === 'published' ? 'Publicado' : 'Borrador' ?>
+                        <?php $status = $news['status'] ?? 'published'; ?>
+                        <span class="px-2 py-1 text-xs rounded-full <?= $status === 'published' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700' ?>">
+                            <?= $status === 'published' ? 'Publicado' : 'Borrador' ?>
                         </span>
                         <a href="<?= APP_URL ?>/admin/news/edit/<?= $news['id'] ?>" class="text-blue-600 hover:text-blue-700">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

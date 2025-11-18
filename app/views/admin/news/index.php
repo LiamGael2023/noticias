@@ -46,7 +46,10 @@ ob_start();
                     <td class="px-6 py-4">
                         <div class="flex items-center gap-3">
                             <?php if (!empty($item['image'])): ?>
-                            <img src="<?= APP_URL ?>/uploads/<?= $item['image'] ?>" alt="" class="w-12 h-12 rounded-lg object-cover">
+                            <?php
+                            $imgSrc = (strpos($item['image'], 'http') === 0) ? $item['image'] : APP_URL . '/uploads/' . $item['image'];
+                            ?>
+                            <img src="<?= $imgSrc ?>" alt="" class="w-12 h-12 rounded-lg object-cover">
                             <?php else: ?>
                             <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
                                 <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,8 +67,9 @@ ob_start();
                         <?= htmlspecialchars($item['category_name'] ?? 'Sin categoría') ?>
                     </td>
                     <td class="px-6 py-4">
-                        <span class="px-2 py-1 text-xs rounded-full <?= $item['status'] === 'published' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700' ?>">
-                            <?= $item['status'] === 'published' ? 'Publicado' : 'Borrador' ?>
+                        <?php $status = $item['status'] ?? 'published'; ?>
+                        <span class="px-2 py-1 text-xs rounded-full <?= $status === 'published' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700' ?>">
+                            <?= $status === 'published' ? 'Publicado' : 'Borrador' ?>
                         </span>
                     </td>
                     <td class="px-6 py-4 text-sm text-slate-600">

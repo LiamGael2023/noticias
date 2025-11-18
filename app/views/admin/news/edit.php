@@ -72,10 +72,11 @@ ob_start();
 
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-2">Estado</label>
+                    <?php $status = $news['status'] ?? 'published'; ?>
                     <select name="status"
                         class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        <option value="draft" <?= $news['status'] === 'draft' ? 'selected' : '' ?>>Borrador</option>
-                        <option value="published" <?= $news['status'] === 'published' ? 'selected' : '' ?>>Publicado</option>
+                        <option value="draft" <?= $status === 'draft' ? 'selected' : '' ?>>Borrador</option>
+                        <option value="published" <?= $status === 'published' ? 'selected' : '' ?>>Publicado</option>
                     </select>
                 </div>
 
@@ -93,7 +94,10 @@ ob_start();
 
             <?php if (!empty($news['image'])): ?>
             <div class="mb-4">
-                <img src="<?= APP_URL ?>/uploads/<?= $news['image'] ?>" alt="" class="w-full h-48 object-cover rounded-xl">
+                <?php
+                $imgSrc = (strpos($news['image'], 'http') === 0) ? $news['image'] : APP_URL . '/uploads/' . $news['image'];
+                ?>
+                <img src="<?= $imgSrc ?>" alt="" class="w-full h-48 object-cover rounded-xl">
                 <p class="text-xs text-slate-500 mt-2">Imagen actual</p>
             </div>
             <?php endif; ?>

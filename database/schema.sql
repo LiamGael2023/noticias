@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS news (
     image VARCHAR(500) NOT NULL,
     category_id INT NOT NULL,
     author VARCHAR(100) NOT NULL,
+    status ENUM('draft', 'published') DEFAULT 'published',
     read_time INT DEFAULT 5,
     featured TINYINT(1) DEFAULT 0,
     views INT DEFAULT 0,
