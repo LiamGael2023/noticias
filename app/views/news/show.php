@@ -1,5 +1,6 @@
 <?php
 include VIEWS_PATH . 'partials/news_card.php';
+include VIEWS_PATH . 'partials/ad_banner.php';
 
 ob_start();
 ?>
